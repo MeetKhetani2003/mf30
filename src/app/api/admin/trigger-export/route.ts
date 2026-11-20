@@ -3,6 +3,8 @@ import prisma from "@/lib/prisma";
 import * as XLSX from "xlsx";
 import { sendEmail } from "@/lib/mailer";
 
+export const dynamic = "force-dynamic";
+
 export async function POST(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);

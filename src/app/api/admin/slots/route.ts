@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { encryptVideoUrl, decryptVideoUrl, computeSha256 } from "@/lib/video-crypto";
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   try {
     const rawSlots = await prisma.examSlot.findMany({

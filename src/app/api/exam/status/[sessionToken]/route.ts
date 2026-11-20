@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { generateSignedPlaybackToken, computeSha256, decryptVideoUrl } from "@/lib/video-crypto";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(
   req: NextRequest,
   { params }: { params: { sessionToken: string } }
