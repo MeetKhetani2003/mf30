@@ -1,0 +1,110 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id           String   @id @default(uuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+}
+
+model SchoolCoordinator {
+  id          String    @id @default(uuid())
+  schoolName  String
+  schoolCode  String    @unique
+  teacherName String
+  phone       String
+  email       String
+  createdAt   DateTime  @default(now())
+  students    Student[]
+}
+
+model ExamSlot {
+  id              String        @id @default(uuid())
+  slotName        String
+  youtubeUrl      String
+  videoStartTime  DateTime
+  videoEndTime    DateTime
+  examStartTime   DateTime
+  examEndTime     DateTime
+  examDurationMin Int           @default(20)
+  isActive        Boolean       @default(true)
+  createdAt       DateTime      @default(now())
+  attempts        ExamAttempt[]
+  students        Student[]
+}
+
+model Student {
+  id               String            @id @default(uuid())
+  name             String
+  phone            String
+  address          String
+  email            String?
+  standard         String
+  section          String
+  ridingExperience String
+  schoolId         String
+  slotId           String?
+  sessionToken     String            @unique @default(uuid())
+  createdAt        DateTime          @default(now())
+  school           SchoolCoordinator @relation(fields: [schoolId], references: [id], onDelete: Cascade)
+  slot             ExamSlot?         @relation(fields: [slotId], references: [id])
+  attempts         ExamAttempt[]
+  answers          StudentAnswer[]
+}
+
+model Question {
+  id            String          @id @default(uuid())
+  questionText  String
+  optionA       String
+  optionB       String
+  optionC       String
+  optionD       String
+  correctOption String // "A", "B", "C", or "D"
+  category      String?         @default("3F Road Safety")
+  explanation   String?
+  answers       StudentAnswer[]
+}
+
+model ExamAttempt {
+  id             String    @id @default(uuid())
+  studentId      String
+  slotId         String
+  score          Int
+  totalQuestions Int       @default(30)
+  timeTakenSec   Int
+  submittedAt    DateTime  @default(now())
+  isExported     Boolean   @default(false)
+  student        Student   @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  slot           ExamSlot  @relation(fields: [slotId], references: [id], onDelete: Cascade)
+}
+
+model StudentAnswer {
+  id             String   @id @default(uuid())
+  studentId      String
+  questionId     String
+  selectedOption String
+  isCorrect      Boolean
+  submittedAt    DateTime @default(now())
+  student        Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  question       Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+}
+
+model Volunteer {
+  id             String   @id @default(uuid())
+  fullName       String
+  email          String
+  phone          String
+  occupation     String
+  ageConfirmed   Boolean  @default(true)
+  domainInterest String
+  availability   String
+  createdAt      DateTime @default(now())
+}
