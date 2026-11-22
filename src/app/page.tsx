@@ -129,20 +129,20 @@ export default function HomePage() {
               {/* Primary & Secondary Brand Buttons */}
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
                 <Link
-                  href="/register/XAV-DEL-101"
+                  href="/students"
                   className="btn-primary w-full sm:w-auto px-6 py-2.5 text-xs sm:text-sm flex items-center justify-center gap-2 font-medium"
                 >
                   <GraduationCap className="w-4 h-4" />
-                  <span>Start Student Exam</span>
+                  <span>Students Program &amp; Exam</span>
                   <ArrowRight className="w-4 h-4 ml-0.5" />
                 </Link>
 
                 <Link
-                  href="/schools"
+                  href="/volunteer"
                   className="btn-secondary w-full sm:w-auto px-6 py-2.5 text-xs sm:text-sm flex items-center justify-center gap-2 font-medium"
                 >
-                  <Building2 className="w-4 h-4 text-brand-orange" />
-                  <span>Partner Your School (Free)</span>
+                  <HeartHandshake className="w-4 h-4 text-brand-orange" />
+                  <span>Join as Volunteer (Kits &amp; Perks)</span>
                   <ArrowRight className="w-4 h-4 text-brand-orange ml-0.5" />
                 </Link>
               </div>

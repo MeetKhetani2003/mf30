@@ -17,6 +17,8 @@ import {
   Bike,
   ShieldAlert,
   AlertOctagon,
+  HeartHandshake,
+  Gift,
 } from "lucide-react";
 import confetti from "canvas-confetti";
 import { formatSecondsToMMSS } from "@/lib/utils";
@@ -72,13 +74,13 @@ export default function LeaderboardPage() {
           const result = await res.json();
           setData(result);
 
-          if (result.currentUser && result.currentUser.score >= 18) {
+          if (result.currentUser && result.currentUser.rank <= 10) {
             try {
               confetti({
-                particleCount: 70,
-                spread: 60,
+                particleCount: 100,
+                spread: 70,
                 origin: { y: 0.6 },
-                colors: ["#FF6A00", "#D97706", "#16A34A", "#1F2937"],
+                colors: ["#FF6A00", "#D97706", "#16A34A", "#F59E0B"],
               });
             } catch (e) {
               // Ignore
@@ -128,10 +130,11 @@ export default function LeaderboardPage() {
 
   const { currentUser, topRankers, slot } = data;
   const isPassed = currentUser ? currentUser.score >= 18 : false;
+  const isUserInTop10 = currentUser ? currentUser.rank <= 10 : false;
 
   return (
-    <div className="min-h-screen py-10 px-4 sm:px-6 bg-brand-soft-white">
-      <div className="max-w-5xl mx-auto space-y-8">
+    <div className="min-h-screen py-8 px-4 sm:px-6 bg-brand-soft-white">
+      <div className="max-w-5xl mx-auto space-y-6">
         {/* Header */}
         <div className="card-premium p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-5 text-center md:text-left">
@@ -194,6 +197,29 @@ export default function LeaderboardPage() {
           </div>
         )}
 
+        {/* TOP 10 HELMET AWARD CELEBRATION BANNER */}
+        {isUserInTop10 && currentUser && (
+          <div className="bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white rounded-2xl p-6 sm:p-8 shadow-lg shadow-orange-500/20 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="flex flex-col sm:flex-row items-center gap-6 relative">
+              <div className="w-20 h-20 rounded-3xl bg-white text-brand-orange flex items-center justify-center flex-shrink-0 shadow-md">
+                <Award className="w-12 h-12" />
+              </div>
+              <div className="text-center sm:text-left space-y-1">
+                <span className="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-bold uppercase tracking-wider text-amber-100">
+                  🎉 Official Prize Winner
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+                  Congratulations, {currentUser.name}! You are in the TOP 10!
+                </h2>
+                <p className="text-sm text-amber-100 leading-relaxed">
+                  You scored <strong>{currentUser.score} / {currentUser.totalQuestions}</strong> and secured <strong>Rank #{currentUser.rank}</strong> in this batch. An official <strong>Mission 3F ISI Certified Road Safety Helmet</strong> will be dispatched to your registered address!
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Current User Score Summary Card */}
         {currentUser && (
           <div className={`card-premium p-6 sm:p-8 border-2 ${
@@ -213,7 +239,7 @@ export default function LeaderboardPage() {
                   {currentUser.name}
                 </h2>
                 <p className="text-xs text-brand-gray">
-                  {currentUser.schoolName} • {currentUser.ridingExperience}
+                  {currentUser.schoolName} &bull; {currentUser.ridingExperience}
                 </p>
               </div>
 
@@ -234,8 +260,8 @@ export default function LeaderboardPage() {
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-white border border-slate-200">
-                  <span className="text-[11px] font-bold text-brand-gray uppercase block">Slot Rank</span>
-                  <span className="text-xl font-bold text-emerald-600">
+                  <span className="text-[11px] font-bold text-brand-gray uppercase block">Batch Rank</span>
+                  <span className={`text-xl font-bold ${isUserInTop10 ? "text-amber-600" : "text-emerald-600"}`}>
                     #{currentUser.rank}
                   </span>
                 </div>
@@ -250,14 +276,15 @@ export default function LeaderboardPage() {
             <div>
               <h2 className="text-lg font-bold text-brand-charcoal flex items-center gap-2">
                 <Award className="w-5 h-5 text-brand-orange" />
-                <span>Top 10 Rankers Merit List</span>
+                <span>Top 10 Rankers Merit List (ISI Helmet Winners)</span>
               </h2>
               <p className="text-xs text-brand-gray">
-                Ranked by: <strong>1. Highest Score</strong> • Tie-Breaker: <strong>2. Shortest Completion Time</strong>
+                Ranked by: <strong>1. Highest Score</strong> &bull; Tie-Breaker: <strong>2. Shortest Completion Time</strong>
               </p>
             </div>
-            <span className="px-3 py-1 rounded-lg bg-slate-100 text-xs font-mono text-brand-charcoal border border-slate-200">
-              Gift &amp; Medal Distribution Tier
+            <span className="px-3 py-1 rounded-lg bg-amber-50 text-xs font-semibold text-amber-900 border border-amber-200 flex items-center gap-1">
+              <Gift className="w-3.5 h-3.5 text-amber-600" />
+              <span>Certified Helmet Awardees</span>
             </span>
           </div>
 
@@ -298,15 +325,13 @@ export default function LeaderboardPage() {
                             You
                           </span>
                         )}
-                        {index < 3 && (
-                          <span className="hidden sm:inline-flex px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-100 text-amber-800 border border-amber-300">
-                            Merit Medal Winner
-                          </span>
-                        )}
+                        <span className="hidden sm:inline-flex px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-100 text-amber-800 border border-amber-300">
+                          🏆 ISI Helmet Winner
+                        </span>
                       </div>
                       <p className="text-xs text-brand-gray flex items-center gap-2 mt-0.5">
                         <span>{entry.schoolName}</span>
-                        <span className="text-slate-300">•</span>
+                        <span className="text-slate-300">&bull;</span>
                         <span className="text-slate-500 truncate max-w-[200px]">{entry.ridingExperience}</span>
                       </p>
                     </div>
@@ -333,6 +358,36 @@ export default function LeaderboardPage() {
               );
             })}
           </div>
+        </div>
+
+        {/* ========================================================= */}
+        {/* VOLUNTEER & AMBASSADOR INVITATION CARD                    */}
+        {/* ========================================================= */}
+        <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-50 border border-emerald-200 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+          <div className="flex items-center gap-4 text-center md:text-left">
+            <div className="w-14 h-14 rounded-2xl bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 shadow-md">
+              <HeartHandshake className="w-8 h-8" />
+            </div>
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-emerald-700">
+                Youth Leadership Program
+              </span>
+              <h3 className="text-xl font-bold text-emerald-950 mt-0.5">
+                Join Mission 3F as a Student Road Safety Ambassador!
+              </h3>
+              <p className="text-xs text-emerald-800 mt-1 max-w-xl leading-relaxed">
+                Take road safety leadership into your school and community. Volunteers receive official Mahal Welfare Services commendation certificates, free Mission 3F Ambassador Kits, safety gear, and event gift surprises!
+              </p>
+            </div>
+          </div>
+
+          <Link
+            href="/volunteer"
+            className="w-full md:w-auto py-3 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md transition-all flex items-center justify-center gap-2 flex-shrink-0"
+          >
+            <span>Apply as Volunteer &bull; Ambassador</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </div>

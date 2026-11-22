@@ -44,11 +44,13 @@ import { formatSecondsToMMSS, formatDate } from "@/lib/utils";
 const CHART_COLORS = ["#FF6A00", "#16A34A", "#D97706", "#2563EB", "#9333EA"];
 
 export default function SuperAdminDashboard() {
-  const [activeTab, setActiveTab] = useState<"analytics" | "slots" | "schools" | "questions" | "pipeline">("analytics");
+  const [activeTab, setActiveTab] = useState<"analytics" | "slots" | "schools" | "questions" | "pipeline" | "helmets">("analytics");
   const [analytics, setAnalytics] = useState<any>(null);
   const [slots, setSlots] = useState<any[]>([]);
   const [schools, setSchools] = useState<any[]>([]);
   const [questions, setQuestions] = useState<any[]>([]);
+  const [helmetBatches, setHelmetBatches] = useState<any[]>([]);
+  const [loadingHelmets, setLoadingHelmets] = useState(false);
   const [loading, setLoading] = useState(true);
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
 
@@ -113,6 +115,42 @@ export default function SuperAdminDashboard() {
   useEffect(() => {
     refreshAllData();
   }, []);
+
+  useEffect(() => {
+    if (activeTab === "helmets") {
+      fetchHelmets();
+    }
+  }, [activeTab]);
+
+  const fetchHelmets = async () => {
+    setLoadingHelmets(true);
+    try {
+      const res = await fetch("/api/admin/helmets");
+      if (res.ok) {
+        const data = await res.json();
+        setHelmetBatches(data.batches || []);
+      }
+    } catch (e) {
+      console.error("Failed to fetch helmet dispatches:", e);
+    } finally {
+      setLoadingHelmets(false);
+    }
+  };
+
+  const downloadHelmetCourierCSV = (batch: any) => {
+    const headers = "Rank,Student Name,Phone,Email,School,Class,Section,Delivery Address,Score,Status\n";
+    const rows = (batch.winners || []).map((w: any) => 
+      `"${w.rank}","${w.name}","${w.phone}","${w.email || ""}","${w.schoolName}","${w.standard}","${w.section}","${(w.address || "").replace(/"/g, '""')}","${w.score}/30","Ready for Dispatch"`
+    ).join("\n");
+    const blob = new Blob([headers + rows], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", `Mission3F-Helmet-Dispatch-${batch.slotId}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   const handleCreateSlot = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -273,6 +311,7 @@ export default function SuperAdminDashboard() {
             { id: "analytics", label: "Overview & Analytics", icon: BarChart3 },
             { id: "slots", label: "Slot Configurator", icon: Clock },
             { id: "schools", label: "School Manager", icon: Building2 },
+            { id: "helmets", label: "Top 10 Helmet Dispatch", icon: Award },
             { id: "pipeline", label: "Excel, SMTP & Purge Pipeline", icon: FileSpreadsheet },
           ].map((tab) => {
             const Icon = tab.icon;
@@ -754,6 +793,134 @@ export default function SuperAdminDashboard() {
                   ))}
                 </div>
               </div>
+            </div>
+          </div>
+        )}
+
+        {/* TAB: TOP 10 HELMET DISPATCH & LOGISTICS */}
+        {activeTab === "helmets" && (
+          <div className="space-y-6">
+            <div className="card-premium p-6 sm:p-8 space-y-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
+                <div>
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-50 text-amber-800 border border-amber-200">
+                    <Award className="w-3.5 h-3.5 text-amber-600" />
+                    <span>Official ISI Helmet Logistics</span>
+                  </div>
+                  <h2 className="text-xl font-bold text-brand-charcoal mt-1">
+                    Top 10 Helmet Dispatch &amp; Award Tracker
+                  </h2>
+                  <p className="text-xs text-brand-gray mt-0.5">
+                    View verified delivery addresses for top 10 rankers across each monthly examination batch (10th, 20th, and 30th).
+                  </p>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={fetchHelmets}
+                  className="px-3 py-1.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-xs font-semibold text-slate-700 flex items-center gap-1.5 self-start sm:self-center"
+                >
+                  <RefreshCw className={`w-3.5 h-3.5 ${loadingHelmets ? "animate-spin" : ""}`} />
+                  <span>Refresh Batches</span>
+                </button>
+              </div>
+
+              {loadingHelmets ? (
+                <div className="py-12 text-center text-xs text-slate-500 space-y-2">
+                  <div className="w-8 h-8 border-2 border-brand-orange border-t-transparent rounded-full animate-spin mx-auto" />
+                  <p>Loading candidate dispatch lists...</p>
+                </div>
+              ) : helmetBatches.length === 0 ? (
+                <div className="py-12 text-center text-xs text-slate-500">
+                  No active examination slots found.
+                </div>
+              ) : (
+                <div className="space-y-6">
+                  {helmetBatches.map((batch) => (
+                    <div
+                      key={batch.slotId}
+                      className="bg-white rounded-2xl border border-slate-200 p-5 space-y-4 shadow-xs"
+                    >
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-3 border-b border-slate-100">
+                        <div>
+                          <h3 className="text-base font-bold text-slate-900">
+                            {batch.slotName}
+                          </h3>
+                          <p className="text-xs text-slate-500">
+                            Exam Time: {new Date(batch.examStartTime).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" })} &bull; Total Submissions: <strong>{batch.totalAttempts}</strong>
+                          </p>
+                        </div>
+
+                        {batch.winners && batch.winners.length > 0 && (
+                          <button
+                            type="button"
+                            onClick={() => downloadHelmetCourierCSV(batch)}
+                            className="px-3.5 py-2 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold flex items-center gap-1.5 transition-colors"
+                          >
+                            <FileSpreadsheet className="w-3.5 h-3.5 text-amber-700" />
+                            <span>Download Courier Labels (CSV)</span>
+                          </button>
+                        )}
+                      </div>
+
+                      {batch.winners && batch.winners.length > 0 ? (
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-left text-xs">
+                            <thead className="bg-slate-50 text-slate-600 font-bold uppercase tracking-wider text-[11px] border-y border-slate-200">
+                              <tr>
+                                <th className="py-2.5 px-3">Rank</th>
+                                <th className="py-2.5 px-3">Student Name</th>
+                                <th className="py-2.5 px-3">Contact</th>
+                                <th className="py-2.5 px-3">School / Class</th>
+                                <th className="py-2.5 px-3">Courier Delivery Address</th>
+                                <th className="py-2.5 px-3">Score</th>
+                                <th className="py-2.5 px-3">Status</th>
+                              </tr>
+                            </thead>
+                            <tbody className="divide-y divide-slate-100">
+                              {batch.winners.map((winner: any) => (
+                                <tr key={winner.studentId} className="hover:bg-slate-50/80">
+                                  <td className="py-3 px-3 font-bold">
+                                    {winner.rank === 1 ? "🥇 #1" : winner.rank === 2 ? "🥈 #2" : winner.rank === 3 ? "🥉 #3" : `#${winner.rank}`}
+                                  </td>
+                                  <td className="py-3 px-3 font-semibold text-slate-900">
+                                    {winner.name}
+                                  </td>
+                                  <td className="py-3 px-3 text-slate-700">
+                                    <div>{winner.phone}</div>
+                                    <div className="text-[11px] text-slate-400">{winner.email || "No email"}</div>
+                                  </td>
+                                  <td className="py-3 px-3 text-slate-700">
+                                    <div className="font-medium truncate max-w-[150px]">{winner.schoolName}</div>
+                                    <div className="text-[11px] text-slate-400">{winner.standard} - {winner.section}</div>
+                                  </td>
+                                  <td className="py-3 px-3 text-slate-800 font-mono text-[11px] max-w-xs">
+                                    <span className="p-1.5 rounded bg-slate-100 block border border-slate-200">
+                                      {winner.address}
+                                    </span>
+                                  </td>
+                                  <td className="py-3 px-3 font-bold text-brand-orange whitespace-nowrap">
+                                    {winner.score} / {winner.totalQuestions}
+                                  </td>
+                                  <td className="py-3 px-3 whitespace-nowrap">
+                                    <span className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase bg-emerald-100 text-emerald-800 border border-emerald-300">
+                                      Ready for Dispatch
+                                    </span>
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      ) : (
+                        <div className="p-4 bg-slate-50 rounded-xl text-center text-xs text-slate-500">
+                          No student attempts recorded for this slot yet. Top 10 will populate automatically upon student submissions.
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         )}
