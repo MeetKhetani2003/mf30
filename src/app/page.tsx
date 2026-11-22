@@ -107,14 +107,6 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Column: NGO Identity, Mission Narrative, CTAs & 3F Pillars */}
             <div className="lg:col-span-7 flex flex-col justify-center space-y-5 text-center lg:text-left">
-              {/* Registered NGO Badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cream border border-brand-orange/20 text-xs text-brand-charcoal w-fit mx-auto lg:mx-0 shadow-xs">
-                <span className="w-2 h-2 rounded-full bg-brand-orange" />
-                <span className="text-brand-orange font-semibold">Mahal Welfare Services</span>
-                <span className="text-slate-300">•</span>
-                <span className="text-slate-600 font-normal">Est. 2011 • Road Safety NGO</span>
-              </div>
-
               {/* Main NGO Campaign Headline & Narrative */}
               <div className="space-y-3">
                 <h1 className="text-3xl sm:text-4xl lg:text-[40px] font-semibold text-slate-900 tracking-tight leading-[1.25]">
