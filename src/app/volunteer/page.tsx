@@ -304,7 +304,7 @@ export default function VolunteerPage() {
                         className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-500"
                       >
                         <option value="Flexible / Weekends">Flexible / Weekends Only</option>
-                        <option value="Monthly 10th/20th/30th Exam Days">Monthly 10th / 20th / 30th Exam Days</option>
+                        <option value="Monthly 9th/18th/27th Exam Days">Monthly 9th / 18th / 27th Exam Days (7:00 PM IST)</option>
                         <option value="Weekdays (After School/Work)">Weekdays (Afternoon/Evening)</option>
                         <option value="Full Time Volunteer">Active Community Campaigner</option>
                       </select>

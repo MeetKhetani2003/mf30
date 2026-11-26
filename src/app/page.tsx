@@ -22,13 +22,11 @@ import {
   Activity,
   Zap,
   Target,
-  Gauge,
-  Dumbbell,
-  KeyRound,
-  ExternalLink,
-  Play,
-  Check,
-  Flame,
+  Trees,
+  Trash2,
+  Heart,
+  Gift,
+  Globe2,
 } from "lucide-react";
 
 const CATEGORIES = [
@@ -96,140 +94,115 @@ const CATEGORIES = [
 
 export default function HomePage() {
   return (
-    <div className="bg-brand-soft-white">
-      {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-white via-brand-soft-white to-white border-b border-brand-border py-8 lg:py-12">
-        {/* Subtle background ambient mesh lighting */}
+    <div className="bg-[#FFFDF9]">
+      {/* ========================================================= */}
+      {/* 1. HERO SECTION                                           */}
+      {/* ========================================================= */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-white via-orange-50/20 to-white border-b border-brand-border py-10 lg:py-16">
         <div className="absolute top-0 right-0 w-80 h-80 bg-brand-orange/5 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
 
         <div className="container mx-auto px-4 sm:px-6 relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left Column: NGO Identity, Mission Narrative, CTAs & 3F Pillars */}
-            <div className="lg:col-span-7 flex flex-col justify-center space-y-5 text-center lg:text-left">
-              {/* Main NGO Campaign Headline & Narrative */}
+            {/* Left 7 cols: Headline & Narrative */}
+            <div className="lg:col-span-7 flex flex-col justify-center space-y-6 text-center lg:text-left">
               <div className="space-y-3">
-                <h1 className="text-3xl sm:text-4xl lg:text-[40px] font-semibold text-slate-900 tracking-tight leading-[1.25]">
-                  Building safer roads through <span className="text-brand-orange">educated young minds.</span>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-xs font-semibold text-brand-orange w-fit mx-auto lg:mx-0">
+                  <Globe2 className="w-3.5 h-3.5" />
+                  <span>Mahal Welfare Society &bull; Nangal (2011) &amp; Canada (2021)</span>
+                </div>
+
+                <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-slate-900 tracking-tight leading-[1.2]">
+                  Mission-3F: <span className="text-brand-orange">Grassroots Service</span> &bull; Global Reach &bull; Safer Roads
                 </h1>
 
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal max-w-xl mx-auto lg:mx-0">
-                  Mahal Welfare Services empowers school students across India with life-saving road safety education—teaching helmet discipline, pedestrian safety, and defensive habits before they ever take the road.
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0 font-normal">
+                  Mission-3F unites Mahal Welfare Services, Nangal (est. 2011) and Mahal Welfare Society, Canada (est. 2021) to turn community compassion into lasting action worldwide. Together, we support environmental care, youth well-being, women&apos;s leadership, senior citizens, and road safety.
                 </p>
               </div>
 
-              {/* Primary & Secondary Brand Buttons */}
+              {/* Primary Action Buttons */}
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
                 <Link
                   href="/students"
-                  className="btn-primary w-full sm:w-auto px-6 py-2.5 text-xs sm:text-sm flex items-center justify-center gap-2 font-medium"
+                  className="btn-primary w-full sm:w-auto px-6 py-3 text-xs sm:text-sm flex items-center justify-center gap-2 font-semibold shadow-md shadow-orange-500/20"
                 >
                   <GraduationCap className="w-4 h-4" />
-                  <span>Students Program &amp; Exam</span>
+                  <span>Register for Monthly Exam (9th, 18th, 27th)</span>
                   <ArrowRight className="w-4 h-4 ml-0.5" />
                 </Link>
 
                 <Link
                   href="/volunteer"
-                  className="btn-secondary w-full sm:w-auto px-6 py-2.5 text-xs sm:text-sm flex items-center justify-center gap-2 font-medium"
+                  className="btn-secondary w-full sm:w-auto px-6 py-3 text-xs sm:text-sm flex items-center justify-center gap-2 font-semibold"
                 >
                   <HeartHandshake className="w-4 h-4 text-brand-orange" />
-                  <span>Join as Volunteer (Kits &amp; Perks)</span>
+                  <span>Become a Traffic Soldier</span>
                   <ArrowRight className="w-4 h-4 text-brand-orange ml-0.5" />
                 </Link>
               </div>
 
-              {/* Three Pillars of Mission 3F: Fit • Fast • Focused */}
-              <div className="pt-3 border-t border-slate-200/80">
+              {/* Three Pillars: Fit • Fast • Focused */}
+              <div className="pt-4 border-t border-slate-200">
                 <div className="grid grid-cols-3 gap-2 sm:gap-4">
                   <div className="flex items-center gap-2 justify-center lg:justify-start">
-                    <div className="w-7 h-7 rounded-lg bg-orange-50 border border-orange-100 flex items-center justify-center text-brand-orange flex-shrink-0">
-                      <Shield className="w-3.5 h-3.5" />
+                    <div className="w-8 h-8 rounded-lg bg-orange-50 border border-orange-100 flex items-center justify-center text-brand-orange flex-shrink-0">
+                      <Shield className="w-4 h-4" />
                     </div>
                     <div className="text-left">
-                      <p className="text-xs font-semibold text-slate-800">Fit</p>
-                      <p className="text-[11px] text-slate-500 font-normal">Helmet Discipline</p>
+                      <p className="text-xs font-bold text-slate-900">Fit</p>
+                      <p className="text-[11px] text-slate-500">Helmet Discipline</p>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-2 justify-center lg:justify-start">
-                    <div className="w-7 h-7 rounded-lg bg-orange-50 border border-orange-100 flex items-center justify-center text-brand-orange flex-shrink-0">
-                      <Zap className="w-3.5 h-3.5" />
+                    <div className="w-8 h-8 rounded-lg bg-orange-50 border border-orange-100 flex items-center justify-center text-brand-orange flex-shrink-0">
+                      <Zap className="w-4 h-4" />
                     </div>
                     <div className="text-left">
-                      <p className="text-xs font-semibold text-slate-800">Fast</p>
-                      <p className="text-[11px] text-slate-500 font-normal">Quick Reflexes</p>
+                      <p className="text-xs font-bold text-slate-900">Fast</p>
+                      <p className="text-[11px] text-slate-500">Quick Reflexes</p>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-2 justify-center lg:justify-start">
-                    <div className="w-7 h-7 rounded-lg bg-orange-50 border border-orange-100 flex items-center justify-center text-brand-orange flex-shrink-0">
-                      <Target className="w-3.5 h-3.5" />
+                    <div className="w-8 h-8 rounded-lg bg-orange-50 border border-orange-100 flex items-center justify-center text-brand-orange flex-shrink-0">
+                      <Target className="w-4 h-4" />
                     </div>
                     <div className="text-left">
-                      <p className="text-xs font-semibold text-slate-800">Focused</p>
-                      <p className="text-[11px] text-slate-500 font-normal">Zero Distraction</p>
+                      <p className="text-xs font-bold text-slate-900">Focused</p>
+                      <p className="text-[11px] text-slate-500">Zero Distraction</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Unified Workshop Showcase Card */}
+            {/* Right 5 cols: Official Global Launch Visual */}
             <div className="lg:col-span-5">
-              <div className="bg-white rounded-2xl border border-slate-200/90 shadow-md p-2.5 sm:p-3 space-y-3">
-                {/* Authentic Workshop Photo */}
-                <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden bg-slate-100">
+              <div className="bg-white rounded-3xl border border-slate-200 shadow-md p-3 sm:p-4 space-y-3">
+                <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden bg-slate-100">
                   <Image
-                    src="/images/hero-ngo-road-safety.jpg"
-                    alt="Mahal Welfare Services Road Safety Workshop demonstrating helmet safety to school students"
+                    src="/images/mission-3f-global-launch.jpg"
+                    alt="Mission-3F Global Chapter Launch"
                     fill
                     className="object-cover"
                     priority
                   />
-
-                  {/* Top Live Badges */}
-                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
-                    <div className="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-slate-200 text-xs font-medium text-slate-800 flex items-center gap-1.5 shadow-xs">
-                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                      <span>Live School Workshop</span>
-                    </div>
-                    <span className="px-2.5 py-1 rounded-full bg-brand-orange text-white text-[11px] font-medium shadow-xs">
-                      Mahal Welfare Services
-                    </span>
-                  </div>
-
-                  {/* Bottom Photo Gradient Caption */}
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-3.5 text-white">
-                    <div className="flex items-center gap-1.5 text-amber-300 text-xs font-medium uppercase tracking-wider mb-0.5">
-                      <Shield className="w-3.5 h-3.5" />
-                      <span>School Helmet Demonstration</span>
-                    </div>
-                    <p className="text-xs text-slate-200 font-normal leading-relaxed">
-                      Demonstrating IS 4151 chin-strap fastening to students before they take the road.
-                    </p>
+                  <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-slate-800 shadow-xs flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span>Global Launch: Mission-3F.org</span>
                   </div>
                 </div>
 
-                {/* Integrated Metric Bar Docked Below Photo */}
-                <div className="px-1 py-0.5 flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-lg bg-brand-cream flex items-center justify-center text-brand-orange flex-shrink-0">
-                      <Trophy className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <span className="block text-brand-charcoal text-xs font-semibold">
-                        50,000+ Young Lives Educated
-                      </span>
-                      <span className="text-[11px] text-brand-gray font-normal">
-                        Grassroots road safety workshops across India
-                      </span>
-                    </div>
+                <div className="p-2 space-y-1.5">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-bold text-slate-900">Mahal Welfare Society</span>
+                    <span className="font-semibold text-brand-orange">Est. 2011 &amp; 2021</span>
                   </div>
-
-                  <span className="text-[11px] font-medium text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200 flex-shrink-0">
-                    Free for Schools
-                  </span>
+                  <p className="text-xs text-slate-500 leading-normal">
+                    Grassroots teams in Nangal, Punjab and diaspora champions in Canada driving road safety, clean environments, and youth leadership.
+                  </p>
                 </div>
               </div>
             </div>
@@ -237,224 +210,247 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. ROAD SAFETY STATISTICAL REALITY */}
-      <section className="py-8 sm:py-10 bg-white border-b border-brand-border">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div className="space-y-1">
-              <p className="text-2xl sm:text-3xl font-semibold text-brand-charcoal font-sans">150,000+</p>
-              <p className="text-xs text-brand-gray uppercase tracking-wider font-normal">
-                Annual Road Fatalities in India
+      {/* ========================================================= */}
+      {/* 2. WHO WE ARE SECTION                                     */}
+      {/* ========================================================= */}
+      <section className="py-14 bg-white border-b border-slate-200">
+        <div className="container mx-auto px-4 sm:px-6 max-w-5xl space-y-8">
+          <div className="text-center space-y-3 max-w-2xl mx-auto">
+            <span className="px-3.5 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-xs font-bold uppercase tracking-wider text-brand-orange">
+              Global Humanitarian Alliance
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">Who We Are</h2>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              Mission-3F unites Mahal Welfare Services, Nangal (est. 2011) and Mahal Welfare Society, Canada (est. 2021) to turn community compassion into lasting action worldwide. Together, we support environmental care, youth well-being, women&apos;s leadership, senior citizens, and road safety.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+            <div className="bg-orange-50/50 rounded-2xl p-6 border border-orange-200 space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold uppercase tracking-wider text-brand-orange">India Chapter</span>
+                <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-white text-slate-700 border border-orange-200">Est. 2011</span>
+              </div>
+              <h3 className="text-xl font-bold text-slate-900">Mahal Welfare Services, Nangal</h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Over 15 years of continuous on-ground grassroots service across Punjab. Spearheading helmet awareness, tree plantations in schools, senior citizen health camps, and anti-drug youth initiatives.
               </p>
             </div>
-            <div className="space-y-1">
-              <p className="text-2xl sm:text-3xl font-semibold text-brand-orange font-sans">70%</p>
-              <p className="text-xs text-brand-gray uppercase tracking-wider font-normal">
-                Victims Aged 18 to 35 Years
-              </p>
-            </div>
-            <div className="space-y-1">
-              <p className="text-2xl sm:text-3xl font-semibold text-brand-charcoal font-sans">34%</p>
-              <p className="text-xs text-brand-gray uppercase tracking-wider font-normal">
-                Trauma to Chin / Facial Zone
-              </p>
-            </div>
-            <div className="space-y-1">
-              <p className="text-2xl sm:text-3xl font-semibold text-emerald-600 font-sans">Zero</p>
-              <p className="text-xs text-brand-gray uppercase tracking-wider font-normal">
-                Mission 3F Fatality Target
+
+            <div className="bg-amber-50/50 rounded-2xl p-6 border border-amber-200 space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-800">International Chapter</span>
+                <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-white text-slate-700 border border-amber-200">Est. 2021</span>
+              </div>
+              <h3 className="text-xl font-bold text-slate-900">Mahal Welfare Society, Canada</h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Uniting the global Indian diaspora to amplify impact. Mobilizing resources, international road safety advocacy, technological platforms, and youth leadership worldwide.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 3. SIX MAJOR ROAD SAFETY PILLARS */}
-      <section className="py-10 sm:py-14 bg-brand-soft-white">
-        <div className="container mx-auto px-4 sm:px-6">
-          {/* Section Header with balanced spacing */}
-          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10 space-y-2.5">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-brand-cream text-brand-orange border border-brand-orange/20">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-orange" />
-              Structured NGO Curriculum
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight">
-              Six Road Safety Learning Pillars
-            </h2>
-            <p className="text-sm text-slate-600 leading-relaxed font-normal">
-              Every workshop, video lesson, and digital assessment maps directly to these 6 core disciplines to build lifelong, life-saving habits.
+      {/* ========================================================= */}
+      {/* 3. CORE MOVEMENTS SECTION                                 */}
+      {/* ========================================================= */}
+      <section className="py-16 bg-[#FFFDF9] border-b border-slate-200">
+        <div className="container mx-auto px-4 sm:px-6 max-w-6xl space-y-12">
+          <div className="text-center space-y-3 max-w-2xl mx-auto">
+            <span className="text-xs font-bold uppercase tracking-wider text-brand-orange">Key Pillars of Action</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">Core Movements</h2>
+            <p className="text-sm text-slate-600">
+              Our multifaceted initiatives address critical societal challenges through structured programs and community engagement.
             </p>
           </div>
 
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Movement 1: Environment & Cleanliness */}
+            <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 space-y-4 shadow-xs hover:border-emerald-300 transition-colors">
+              <div className="flex items-center justify-between">
+                <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center">
+                  <Trees className="w-6 h-6" />
+                </div>
+                <span className="text-xs font-bold px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+                  Green Society
+                </span>
+              </div>
+              <h3 className="text-xl font-bold text-slate-900">Environment &amp; Cleanliness</h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Tree plantation through <strong>Ek Rukh 100 Sukh</strong> and community action under our <strong>Plastic-Free Movement</strong> to restore nature and preserve urban hygiene.
+              </p>
+              <div className="pt-2">
+                <Link href="/gallery" className="text-xs font-bold text-emerald-700 hover:underline flex items-center gap-1">
+                  <span>View Plantation Drives</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Movement 2: Youth & Elders */}
+            <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 space-y-4 shadow-xs hover:border-purple-300 transition-colors">
+              <div className="flex items-center justify-between">
+                <div className="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 border border-purple-200 flex items-center justify-center">
+                  <Users className="w-6 h-6" />
+                </div>
+                <span className="text-xs font-bold px-3 py-1 rounded-full bg-purple-50 text-purple-700 border border-purple-200">
+                  Intergenerational Care
+                </span>
+              </div>
+              <h3 className="text-xl font-bold text-slate-900">Youth &amp; Elders</h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <strong>Anti-Drug awareness</strong> for young people and <strong>Buzurgan Di Fauj Karegi Mauj</strong> celebrating active, joyful living, wellness, and companionship for senior citizens.
+              </p>
+              <div className="pt-2">
+                <Link href="/events" className="text-xs font-bold text-purple-700 hover:underline flex items-center gap-1">
+                  <span>Explore Senior Care &amp; Youth Meets</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Movement 3: Women Empowerment */}
+            <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 space-y-4 shadow-xs hover:border-pink-300 transition-colors">
+              <div className="flex items-center justify-between">
+                <div className="w-12 h-12 rounded-2xl bg-pink-50 text-pink-600 border border-pink-200 flex items-center justify-center">
+                  <Heart className="w-6 h-6" />
+                </div>
+                <span className="text-xs font-bold px-3 py-1 rounded-full bg-pink-50 text-pink-700 border border-pink-200">
+                  Self-Reliance
+                </span>
+              </div>
+              <h3 className="text-xl font-bold text-slate-900">Women Empowerment</h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <strong>Nari Shakti</strong>, <strong>Self-Help Groups (SHGs)</strong>, and self-help empowerment initiatives that build financial independence, craft skills, and dignified livelihoods.
+              </p>
+              <div className="pt-2">
+                <Link href="/about" className="text-xs font-bold text-pink-700 hover:underline flex items-center gap-1">
+                  <span>Learn About SHG Initiatives</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Movement 4: Road Safety Drive: Become a Traffic Soldier */}
+            <div className="bg-white rounded-3xl border-2 border-brand-orange/40 p-6 sm:p-8 space-y-4 shadow-sm bg-gradient-to-br from-white via-orange-50/20 to-orange-50/40">
+              <div className="flex items-center justify-between">
+                <div className="w-12 h-12 rounded-2xl bg-brand-orange text-white flex items-center justify-center shadow-sm">
+                  <Award className="w-6 h-6" />
+                </div>
+                <span className="text-xs font-bold px-3 py-1 rounded-full bg-orange-100 text-brand-orange border border-orange-300">
+                  9th &bull; 18th &bull; 27th &bull; 7 PM
+                </span>
+              </div>
+              <h3 className="text-xl font-bold text-slate-900">Road Safety Drive: Become a Traffic Soldier</h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Led jointly by our Nangal and Canada teams, our Road Safety Drive runs regular assessments on the <strong>9th, 18th, and 27th of every month at 7:00 PM</strong>. Each batch&apos;s <strong>top 10 candidates receive a free ISI-certified helmet</strong>, and selected Traffic Soldiers receive a <strong>free cap, T-shirt, tracksuit, shoes, and jacket</strong> to help promote safer roads.
+              </p>
+              <div className="flex items-center gap-3 pt-2">
+                <Link
+                  href="/students"
+                  className="py-2.5 px-4 rounded-xl bg-brand-orange text-white font-bold text-xs shadow-sm hover:bg-orange-700 transition-colors"
+                >
+                  Register for Exam &rarr;
+                </Link>
+                <Link
+                  href="/volunteer"
+                  className="py-2.5 px-4 rounded-xl bg-white border border-slate-300 text-slate-700 font-bold text-xs hover:bg-slate-50 transition-colors"
+                >
+                  Join Traffic Soldiers
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================= */}
+      {/* 4. SIX ROAD SAFETY PILLARS                                */}
+      {/* ========================================================= */}
+      <section className="py-14 bg-white border-b border-slate-200">
+        <div className="container mx-auto px-4 sm:px-6 max-w-6xl space-y-10">
+          <div className="text-center space-y-2 max-w-2xl mx-auto">
+            <span className="text-xs font-bold uppercase tracking-wider text-brand-orange">
+              Road Safety Curriculum
+            </span>
+            <h2 className="text-3xl font-extrabold text-slate-900">Six Road Safety Learning Pillars</h2>
+            <p className="text-xs sm:text-sm text-slate-600">
+              Every video session and digital examination MCQ maps directly to these 6 core disciplines to build lifelong safe habits.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {CATEGORIES.map((cat, idx) => {
               const Icon = cat.icon;
               return (
                 <div
                   key={idx}
-                  className="bg-white rounded-2xl border border-slate-200/90 shadow-xs hover:shadow-card hover:border-brand-orange/40 transition-all p-5 sm:p-6 flex flex-col justify-between space-y-4"
+                  className="bg-white rounded-2xl border border-slate-200 p-6 space-y-3 shadow-xs hover:border-orange-300 transition-colors"
                 >
-                  <div className="space-y-3.5">
-                    {/* Header: Icon, Pillar Number & Badge */}
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center border ${cat.color}`}>
-                          <Icon className="w-5 h-5" />
-                        </div>
-                        <span className="text-xs font-mono font-semibold text-slate-400 uppercase tracking-wider">
-                          {cat.pillar}
-                        </span>
-                      </div>
-                      <span className="text-[11px] font-medium text-slate-600 bg-slate-100 px-2.5 py-0.5 rounded-full">
-                        {cat.badge}
-                      </span>
-                    </div>
-
-                    {/* Title & Subtitle */}
-                    <div>
-                      <h3 className="text-base sm:text-lg font-semibold text-slate-900">
-                        {cat.title}
-                      </h3>
-                      <p className="text-xs font-medium text-brand-orange mt-0.5">
-                        {cat.subtitle}
-                      </p>
-                    </div>
-
-                    {/* Core Rule Box - Highlighting the clear takeaway */}
-                    <div className="p-3 rounded-xl bg-orange-50/60 border border-brand-orange/15 text-xs text-slate-700 space-y-1">
-                      <span className="text-[10px] uppercase font-bold tracking-wider text-brand-orange block">
-                        Core Life-Saving Rule
-                      </span>
-                      <p className="font-medium text-slate-800 leading-snug">
-                        {cat.rule}
-                      </p>
-                    </div>
-
-                    {/* Why It Matters (Evidence / Reality) */}
-                    <div className="text-xs text-slate-500 leading-relaxed space-y-1">
-                      <span className="text-[10px] uppercase font-semibold text-slate-400 block tracking-wider">
-                        Why It Matters
-                      </span>
-                      <p>{cat.why}</p>
-                    </div>
-                  </div>
-
-                  {/* Card Footer: Exam Module Tag & Verification */}
-                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-                    <span className="text-slate-500 text-[11px] font-medium flex items-center gap-1.5">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
-                      Tested in 30-MCQ Exam
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold font-mono text-slate-400">{cat.pillar}</span>
+                    <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">
+                      {cat.badge}
                     </span>
-                    <Link
-                      href="/road-safety"
-                      className="text-[11px] font-medium text-brand-orange hover:text-brand-orange-hover flex items-center gap-0.5"
-                    >
-                      <span>Read Guide</span>
-                      <ArrowRight className="w-3 h-3" />
-                    </Link>
                   </div>
+
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-orange-50 text-brand-orange flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h4 className="text-base font-bold text-slate-900">{cat.title}</h4>
+                      <p className="text-xs text-brand-orange font-medium">{cat.subtitle}</p>
+                    </div>
+                  </div>
+
+                  <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 text-xs text-slate-700">
+                    <span className="font-semibold block text-slate-900 mb-0.5">Core Rule:</span>
+                    {cat.rule}
+                  </div>
+
+                  <p className="text-[11px] text-slate-500 leading-normal">
+                    <strong>Why it matters:</strong> {cat.why}
+                  </p>
                 </div>
               );
             })}
           </div>
-
-          {/* Bottom Explore Link */}
-          <div className="text-center mt-8 sm:mt-10">
-            <Link
-              href="/road-safety"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-slate-200 text-xs sm:text-sm font-medium text-slate-700 hover:text-brand-orange hover:border-brand-orange/40 shadow-xs transition-all"
-            >
-              <span>Explore full educational curriculum &amp; safety standards</span>
-              <ArrowRight className="w-4 h-4 text-brand-orange" />
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* 4. HOW MISSION 3F WORKS (4-STEP JOURNEY) */}
-      <section className="py-10 sm:py-14 bg-white border-y border-brand-border">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10 space-y-2.5">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-brand-cream text-brand-orange border border-brand-orange/20">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-orange" />
-              Seamless 4-Step Process
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight">
-              How Students Experience Mission 3F
+      {/* ========================================================= */}
+      {/* 5. CALL TO ACTION: PARTICIPATE & VOLUNTEER                */}
+      {/* ========================================================= */}
+      <section className="py-16 bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 text-white">
+        <div className="container mx-auto px-4 sm:px-6 max-w-4xl text-center space-y-6">
+          <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center mx-auto text-white">
+            <Globe2 className="w-8 h-8" />
+          </div>
+
+          <div className="space-y-2">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+              Join the Mission-3F Movement Today
             </h2>
-            <p className="text-sm text-slate-600 leading-relaxed font-normal">
-              Engineered for extreme simplicity and high engagement on smartphones, tablets, and school computer labs.
+            <p className="text-sm sm:text-base text-orange-100 max-w-xl mx-auto leading-relaxed">
+              Whether you are a student preparing for the upcoming monthly assessment (9th, 18th, 27th), an aspiring Traffic Soldier, or a partner school coordinator &mdash; let&apos;s build a safer, greener future together.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            <div className="p-5 rounded-2xl bg-brand-soft-white border border-slate-200/90 space-y-2.5">
-              <span className="text-2xl font-semibold text-brand-orange font-mono">01</span>
-              <h4 className="text-sm font-semibold text-slate-900">School Onboarding</h4>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                School coordinator registers their institution and shares a dedicated registration link with students.
-              </p>
-            </div>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+            <Link
+              href="/students"
+              className="w-full sm:w-auto py-3.5 px-8 rounded-xl bg-white text-brand-orange font-bold text-sm shadow-lg hover:bg-orange-50 transition-colors"
+            >
+              Take Student Road Safety Exam &rarr;
+            </Link>
 
-            <div className="p-5 rounded-2xl bg-brand-soft-white border border-slate-200/90 space-y-2.5">
-              <span className="text-2xl font-semibold text-brand-orange font-mono">02</span>
-              <h4 className="text-sm font-semibold text-slate-900">Timed Video Classroom</h4>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Students watch an engaging road safety video during their assigned slot. The player auto-unmounts when done.
-              </p>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-brand-soft-white border border-slate-200/90 space-y-2.5">
-              <span className="text-2xl font-semibold text-brand-orange font-mono">03</span>
-              <h4 className="text-sm font-semibold text-slate-900">30-MCQ Digital Exam</h4>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                A 20-minute timed assessment with automatic submission at 00:00 and instant server-side score calculation.
-              </p>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-brand-soft-white border border-slate-200/90 space-y-2.5">
-              <span className="text-2xl font-semibold text-brand-orange font-mono">04</span>
-              <h4 className="text-sm font-semibold text-slate-900">Merit &amp; Rewards</h4>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Live slot leaderboard ranks top performers, unlocking official certificates, medals, and road safety gifts.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. VOLUNTEER & SCHOOL PARTNERSHIP CTA */}
-      <section className="py-10 sm:py-14 bg-brand-cream/60 border-b border-brand-orange/20">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto rounded-3xl bg-white p-6 sm:p-10 border border-brand-orange/25 shadow-card flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
-            <div className="space-y-2.5 text-center md:text-left">
-              <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-xs font-semibold bg-brand-cream text-brand-orange border border-brand-orange/20">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-orange" />
-                Join The Movement
-              </span>
-              <h3 className="text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight">
-                Are You an Educator or Safety Advocate?
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 max-w-lg leading-relaxed font-normal">
-                Partner your school with Mission 3F or register as a certified volunteer to conduct life-saving road safety workshops in your city.
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto flex-shrink-0">
-              <Link
-                href="/schools"
-                className="btn-primary px-5 py-2.5 text-xs sm:text-sm font-medium text-center"
-              >
-                Onboard School
-              </Link>
-              <Link
-                href="/volunteer"
-                className="btn-secondary px-5 py-2.5 text-xs sm:text-sm font-medium text-center"
-              >
-                Volunteer With Us
-              </Link>
-            </div>
+            <Link
+              href="/volunteer"
+              className="w-full sm:w-auto py-3.5 px-8 rounded-xl bg-orange-700/80 border border-white/30 text-white font-bold text-sm hover:bg-orange-800 transition-colors"
+            >
+              Become a Traffic Soldier
+            </Link>
           </div>
         </div>
       </section>

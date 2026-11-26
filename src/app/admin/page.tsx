@@ -811,7 +811,7 @@ export default function SuperAdminDashboard() {
                     Top 10 Helmet Dispatch &amp; Award Tracker
                   </h2>
                   <p className="text-xs text-brand-gray mt-0.5">
-                    View verified delivery addresses for top 10 rankers across each monthly examination batch (10th, 20th, and 30th).
+                    View verified delivery addresses for top 10 rankers across each monthly examination batch (9th, 18th, and 27th at 7:00 PM IST).
                   </p>
                 </div>
 

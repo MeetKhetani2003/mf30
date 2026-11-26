@@ -111,7 +111,7 @@ export async function POST(req: NextRequest) {
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #fed7aa; border-radius: 16px; background-color: #fffaf5;">
             <div style="text-align: center; margin-bottom: 24px;">
               <h2 style="color: #ff6a00; margin: 0; font-size: 24px;">Mission 3F • Examination Results</h2>
-              <p style="color: #64748b; font-size: 13px; margin: 4px 0 0;">Mahal Welfare Services (Est. 2011) — Road Safety NGO</p>
+              <p style="color: #64748b; font-size: 13px; margin: 4px 0 0;">Mahal Welfare Society • Nangal (2011) &amp; Canada (2021)</p>
             </div>
 
             <div style="background: white; border-radius: 12px; padding: 24px; border: 1px solid #f1f5f9; margin-bottom: 20px;">

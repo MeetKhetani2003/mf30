@@ -3,7 +3,7 @@ const prisma = new PrismaClient();
 
 async function main() {
   const baseDate = new Date();
-  const candidateDays = [10, 20, 30];
+  const candidateDays = [9, 18, 27];
   const currentYear = baseDate.getFullYear();
   const currentMonth = baseDate.getMonth();
 
@@ -13,7 +13,7 @@ async function main() {
     const targetYear = currentYear + Math.floor((currentMonth + m) / 12);
 
     for (const day of candidateDays) {
-      const slotDate = new Date(targetYear, targetMonth, day, 17, 0, 0, 0);
+      const slotDate = new Date(targetYear, targetMonth, day, 19, 0, 0, 0); // 7:00 PM IST
       const twentyMinsAfter = new Date(slotDate.getTime() + 20 * 60 * 1000);
       if (twentyMinsAfter.getTime() >= baseDate.getTime()) {
         foundDates.push({ day, date: slotDate });
@@ -35,7 +35,7 @@ async function main() {
     const slot = await prisma.examSlot.upsert({
       where: { id: slotId },
       update: {
-        slotName: `Mission 3F Road Safety Exam — ${fullDateStr} (5:00 PM Batch)`,
+        slotName: `Mission 3F Road Safety Exam — ${fullDateStr} (7:00 PM Batch)`,
         examStartTime: examStart,
         examEndTime: examEnd,
         videoStartTime: videoStart,
@@ -45,7 +45,7 @@ async function main() {
       },
       create: {
         id: slotId,
-        slotName: `Mission 3F Road Safety Exam — ${fullDateStr} (5:00 PM Batch)`,
+        slotName: `Mission 3F Road Safety Exam — ${fullDateStr} (7:00 PM Batch)`,
         youtubeUrl: "https://www.youtube.com/embed/Z0o2Bw8U_50",
         videoStartTime: videoStart,
         videoEndTime: videoEnd,

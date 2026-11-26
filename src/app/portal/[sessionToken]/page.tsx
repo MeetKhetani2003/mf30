@@ -266,7 +266,7 @@ export default function StudentPortalHub() {
               className="text-xs font-medium text-slate-500 hover:text-brand-orange bg-slate-50 hover:bg-orange-50 border border-slate-200 px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 self-end sm:self-center"
             >
               <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
-              <span>{testBypassLock ? "Re-lock (Testing Mode Active)" : "Simulate 5:00 PM Unlock (Tester)"}</span>
+              <span>{testBypassLock ? "Re-lock (Testing Mode Active)" : "Simulate 7:00 PM Unlock (Tester)"}</span>
             </button>
           </div>
 
@@ -296,7 +296,7 @@ export default function StudentPortalHub() {
               </div>
             </div>
           ) : isSlotLocked ? (
-            /* LOCKED UNTIL 5:00 PM */
+            /* LOCKED UNTIL 7:00 PM */
             <div className="bg-slate-50 border-2 border-slate-200 rounded-2xl p-6 sm:p-8 text-center space-y-4">
               <div className="w-16 h-16 rounded-2xl bg-slate-200 text-slate-600 flex items-center justify-center mx-auto shadow-inner">
                 <Lock className="w-8 h-8" />
@@ -310,7 +310,7 @@ export default function StudentPortalHub() {
                   {timeLeftStr || "Calculating..."}
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-                  The examination room unlocks automatically at <strong>5:00 PM IST</strong> on your scheduled exam day ({examDateFormatted}).
+                  The examination room unlocks automatically at <strong>7:00 PM IST</strong> on your scheduled exam day ({examDateFormatted}).
                 </p>
               </div>
 

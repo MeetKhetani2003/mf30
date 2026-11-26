@@ -36,7 +36,7 @@ export async function GET() {
           id: slot.id,
           day,
           dateLabel: `${day}th ${month} ${year}`,
-          timeLabel: "5:00 PM IST",
+          timeLabel: "7:00 PM IST",
           durationMin: slot.examDurationMin,
           slotName: slot.slotName,
           studentCount,

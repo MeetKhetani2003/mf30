@@ -240,7 +240,7 @@ export default function StudentRegistrationFlow({ initialSchoolCode }: Props) {
             <div className="lg:col-span-8 space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-xs font-semibold text-brand-orange">
                 <Shield className="w-3.5 h-3.5" />
-                <span>Mahal Welfare Services (Est. 2011) • Official Student Program</span>
+                <span>Mahal Welfare Society • Nangal (2011) &amp; Canada (2021) • Student Program</span>
               </div>
 
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight">
@@ -261,7 +261,7 @@ export default function StudentRegistrationFlow({ initialSchoolCode }: Props) {
                     🏆 Top 10 Scorers Win an Official Mission 3F ISI Safety Helmet!
                   </h4>
                   <p className="text-xs text-amber-800 mt-1 leading-normal">
-                    In every monthly batch (10th, 20th & 30th), the top 10 scoring students receive a certified ISI helmet dispatched directly to their registered home delivery address.
+                    In every monthly batch (9th, 18th &amp; 27th at 7:00 PM IST), the top 10 scoring students receive a certified ISI helmet dispatched directly to their registered home delivery address.
                   </p>
                 </div>
               </div>
@@ -655,7 +655,7 @@ export default function StudentRegistrationFlow({ initialSchoolCode }: Props) {
                   type="submit"
                   className="py-3 px-8 rounded-xl bg-gradient-to-r from-[#FF8A00] to-[#FF6A00] hover:from-[#FF6A00] hover:to-[#E65F00] text-white font-bold text-sm shadow-md shadow-orange-500/20 flex items-center gap-2 transition-all hover:scale-[1.01]"
                 >
-                  <span>Proceed to Select Exam Date (10th / 20th / 30th)</span>
+                  <span>Proceed to Select Exam Date (9th, 18th &amp; 27th @ 7:00 PM)</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
@@ -664,7 +664,7 @@ export default function StudentRegistrationFlow({ initialSchoolCode }: Props) {
         )}
 
         {/* ========================================================= */}
-        {/* PHASE 3: FIXED EXAM SLOT PICKER (10th, 20th, 30th @ 5 PM) */}
+        {/* PHASE 3: FIXED EXAM SLOT PICKER (9th, 18th, 27th @ 7 PM) */}
         {/* ========================================================= */}
         {phase === "slot" && (
           <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
@@ -675,7 +675,7 @@ export default function StudentRegistrationFlow({ initialSchoolCode }: Props) {
                   Fixed Date &amp; Time Selection
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-                  Examinations are conducted exclusively on the <strong>10th</strong>, <strong>20th</strong>, and <strong>30th</strong> of every month at <strong>5:00 PM IST</strong> (Duration: 20 Minutes • 30 MCQs).
+                  Examinations are conducted exclusively on the <strong>9th</strong>, <strong>18th</strong>, and <strong>27th</strong> of every month at <strong>7:00 PM IST</strong> (Duration: 20 Minutes • 30 MCQs).
                 </p>
               </div>
 
@@ -712,10 +712,10 @@ export default function StudentRegistrationFlow({ initialSchoolCode }: Props) {
               </div>
             </div>
 
-            {/* Slot Options: 10th, 20th, 30th */}
+            {/* Slot Options: 9th, 18th, 27th */}
             <div className="space-y-3">
               <label className="block text-xs font-bold text-slate-700">
-                Select Your Preferred Exam Date (5:00 PM IST):
+                Select Your Preferred Exam Date (7:00 PM IST):
               </label>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -766,7 +766,7 @@ export default function StudentRegistrationFlow({ initialSchoolCode }: Props) {
             <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-600 flex items-start gap-2.5">
               <Lock className="w-4 h-4 text-slate-500 mt-0.5 flex-shrink-0" />
               <div>
-                <strong className="text-slate-800">Exam Room Lock Rule:</strong> Your examination link will be sent to your email immediately upon confirmation. The exam portal remains securely locked until <strong>5:00 PM IST</strong> on your chosen exam day. Once 5:00 PM arrives, you can verify your details and begin the 30-MCQ test.
+                <strong className="text-slate-800">Exam Room Lock Rule:</strong> Your examination link will be sent to your email immediately upon confirmation. The exam portal remains securely locked until <strong>7:00 PM IST</strong> on your chosen exam day. Once 7:00 PM arrives, you can verify your details and begin the 30-MCQ test.
               </div>
             </div>
 

@@ -111,18 +111,18 @@ export async function POST(req: NextRequest) {
           dateStyle: "medium",
           timeStyle: "short",
         })
-      : "10th / 20th / 30th at 5:00 PM IST";
+      : "9th / 18th / 27th at 7:00 PM IST";
 
     if (recipientEmail) {
       await sendEmail({
         to: recipientEmail,
         subject: `Your Mission 3F Examination Session Link — ${name} (${candidateCode})`,
-        text: `Hello ${name},\n\nYour registration for the Mission 3F Road Safety Digital Certification is confirmed!\n\nScheduled Exam Slot: ${slotDateStr}\nYour Candidate Code: ${candidateCode}\nPersonalized Exam Portal Link: ${portalUrl}\n\nTop 10 candidates in each batch win a certified Mission 3F ISI Safety Helmet delivered to your home address!\n\nMahal Welfare Services (Est. 2011)`,
+        text: `Hello ${name},\n\nYour registration for the Mission 3F Road Safety Digital Certification is confirmed!\n\nScheduled Exam Slot: ${slotDateStr}\nYour Candidate Code: ${candidateCode}\nPersonalized Exam Portal Link: ${portalUrl}\n\nTop 10 candidates in each batch win a certified Mission 3F ISI Safety Helmet delivered to your home address!\n\nMahal Welfare Society — Nangal (2011) & Canada (2021)`,
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #fed7aa; border-radius: 16px; background-color: #fffaf5;">
             <div style="text-align: center; margin-bottom: 24px;">
               <h2 style="color: #ff6a00; margin: 0; font-size: 24px;">Mission 3F • Road Safety Digital Exam</h2>
-              <p style="color: #64748b; font-size: 13px; margin: 4px 0 0;">Mahal Welfare Services (Est. 2011) — Registered Non-Profit NGO</p>
+              <p style="color: #64748b; font-size: 13px; margin: 4px 0 0;">Mahal Welfare Society • Nangal (2011) &amp; Canada (2021)</p>
             </div>
 
             <div style="background: white; border-radius: 12px; padding: 20px; border: 1px solid #f1f5f9; margin-bottom: 20px;">
@@ -134,7 +134,7 @@ export async function POST(req: NextRequest) {
               <div style="background-color: #f8fafc; border-left: 4px solid #ff6a00; padding: 12px 16px; margin-bottom: 16px;">
                 <p style="margin: 0 0 4px; font-size: 13px; color: #64748b;">Scheduled Examination Slot:</p>
                 <p style="margin: 0; font-size: 16px; font-weight: bold; color: #1e293b;">${slotDateStr}</p>
-                <p style="margin: 6px 0 0; font-size: 12px; color: #94a3b8;">(Exam is locked until 5:00 PM on your scheduled exam day)</p>
+                <p style="margin: 6px 0 0; font-size: 12px; color: #94a3b8;">(Exam is locked until 7:00 PM on your scheduled exam day)</p>
               </div>
 
               <div style="background-color: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; padding: 12px; text-align: center; margin-bottom: 20px;">

@@ -1,136 +1,208 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Shield, Award, Users, Heart, Target, CheckCircle2, ArrowRight } from "lucide-react";
+import {
+  Shield,
+  Award,
+  Users,
+  Heart,
+  Target,
+  CheckCircle2,
+  ArrowRight,
+  Globe2,
+  Trees,
+  Trash2,
+  Sparkles,
+  Gift,
+} from "lucide-react";
 
 export const metadata = {
-  title: "About Us | Mahal Welfare Services (Est. 2011)",
-  description: "Learn about Mahal Welfare Services, established in 2011, dedicated to grassroots youth welfare, road safety education, and civic discipline.",
+  title: "About Us – Mission-3F | Mahal Welfare Society (Nangal 2011 & Canada 2021)",
+  description:
+    "Mission-3F unites Mahal Welfare Services, Nangal (est. 2011) and Mahal Welfare Society, Canada (est. 2021) to build a safer, greener, and self-reliant society across Environment, Youth, Senior Citizens, Women Empowerment, and Road Safety.",
 };
 
 export default function AboutPage() {
   return (
-    <div className="bg-brand-soft-white py-12 lg:py-20">
-      <div className="container mx-auto px-4 sm:px-6 space-y-16">
+    <div className="bg-[#FFFDF9] py-12 lg:py-20">
+      <div className="container mx-auto px-4 sm:px-6 space-y-16 max-w-6xl">
         {/* Header Section */}
-        <div className="max-w-3xl mx-auto text-center space-y-3 sm:space-y-4">
-          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-brand-cream border border-brand-orange/20 text-xs text-brand-orange font-semibold">
-            <span className="w-1.5 h-1.5 rounded-full bg-brand-orange" />
-            Non-Profit Heritage • Established 2011
-          </span>
-          <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold text-slate-900 tracking-tight leading-tight">
-            About Mahal Welfare Services
+        <div className="max-w-3xl mx-auto text-center space-y-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-xs font-semibold text-brand-orange">
+            <Globe2 className="w-3.5 h-3.5" />
+            <span>Mahal Welfare Services, Nangal (2011) &amp; Mahal Welfare Society, Canada (2021)</span>
+          </div>
+
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+            About Us &ndash; <span className="text-brand-orange">Mission-3F</span>
           </h1>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-            For over 15 years, Mahal Welfare Services has spearheaded civic consciousness, child protection, and youth-driven road safety campaigns across schools and educational institutions.
+
+          <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+            Mission-3F unites Mahal Welfare Services, Nangal (est. 2011) and Mahal Welfare Society, Canada (est. 2021) to build a safer, greener, and self-reliant society. Over the last decade, our grassroots work in India and diaspora support in Canada have come together to drive real social change.
           </p>
         </div>
 
-        {/* Story & Workshop Lockup */}
-        <div className="bg-white rounded-3xl border border-slate-200/90 shadow-card p-6 sm:p-10">
+        {/* Global Unity Banner with Photo */}
+        <div className="bg-white rounded-3xl border border-slate-200 shadow-md p-6 sm:p-10 overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="relative w-full max-w-md aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 shadow-sm group bg-slate-100">
-                <Image
-                  src="/images/about-ngo-classroom.jpg"
-                  alt="Mahal Welfare Services Road Safety Classroom Seminar with school students"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex flex-col justify-end p-4 sm:p-5 text-white">
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-amber-300">
-                    Classroom Road Safety Seminar
-                  </span>
-                  <p className="text-xs font-medium leading-snug mt-1 text-slate-100">
-                    NGO educators teaching traffic signs and pedestrian rules in an Indian secondary school
-                  </p>
-                </div>
-              </div>
+            <div className="lg:col-span-6 relative aspect-[16/9] w-full rounded-2xl overflow-hidden bg-slate-100 shadow-sm border border-slate-200">
+              <Image
+                src="/images/mission-3f-global-launch.jpg"
+                alt="Mission-3F Global Chapter Launch — Nangal and Canada"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
 
-            <div className="lg:col-span-7 space-y-4 text-slate-800">
-              <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-orange">
+            <div className="lg:col-span-6 space-y-4">
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-orange uppercase tracking-wider">
                 <Shield className="w-4 h-4" />
-                <span>Our Founding Story</span>
+                <span>Our Heritage &amp; Global Alliance</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight">
-                Dedicated to Saving Young Lives Since 2011
+
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                Turning Community Compassion Into Lasting Worldwide Action
               </h2>
-              <p className="text-sm text-slate-600 leading-relaxed font-normal">
-                Founded in 2011, Mahal Welfare Services began as a grassroots initiative responding to alarming statistics: motor vehicle crashes, particularly involving two-wheeler riders, had become the single largest cause of accidental death and permanent trauma among teenagers and young adults in India.
-              </p>
-              <p className="text-sm text-slate-600 leading-relaxed font-normal">
-                Rather than treating road safety as a dry punitive regulation, we recognized that lasting behavioral change starts in the school classroom. Through engaging visual training, teacher coordinator mentorship, and objective digital assessments, we instill defensive driving and passenger habits before students ever turn an ignition key.
+
+              <p className="text-sm text-slate-600 leading-relaxed">
+                What started in 2011 as on-ground civic service in Nangal, Punjab has grown into an international movement supported by diaspora leaders in Canada since 2021.
               </p>
 
-              <div className="grid grid-cols-2 gap-3 sm:gap-4 pt-2">
-                <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50 border border-slate-200">
-                  <strong className="text-brand-orange text-xl font-semibold block font-sans">15+ Years</strong>
-                  <span className="text-xs text-slate-500 font-normal">Continuous Community Service</span>
+              <div className="grid grid-cols-2 gap-3 pt-2">
+                <div className="p-4 rounded-xl bg-orange-50/60 border border-orange-200 space-y-1">
+                  <span className="text-brand-orange text-lg font-bold block">Nangal (Est. 2011)</span>
+                  <p className="text-xs text-slate-600">Mahal Welfare Services on-ground grassroots team leading tree plantations, elder care, and school drives.</p>
                 </div>
-                <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50 border border-slate-200">
-                  <strong className="text-slate-800 text-xl font-semibold block font-sans">Zero-Fatality</strong>
-                  <span className="text-xs text-slate-500 font-normal">Vision &amp; Advocacy Target</span>
+
+                <div className="p-4 rounded-xl bg-amber-50/60 border border-amber-200 space-y-1">
+                  <span className="text-amber-800 text-lg font-bold block">Canada (Est. 2021)</span>
+                  <p className="text-xs text-slate-600">Mahal Welfare Society global diaspora chapter driving international awareness, resources, and youth engagement.</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Vision, Mission, & Core Objectives */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
-          <div className="bg-white rounded-2xl border border-slate-200/90 shadow-xs p-6 sm:p-8 space-y-3">
-            <div className="w-12 h-12 rounded-xl bg-brand-cream border border-brand-orange/30 flex items-center justify-center text-brand-orange mb-4">
-              <Target className="w-6 h-6" />
-            </div>
-            <h3 className="text-lg sm:text-xl font-semibold text-slate-900">Our Vision</h3>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-              An India where every school student, two-wheeler rider, and pedestrian embraces defensive road discipline, creating zero-fatality communities through structured education.
-            </p>
+        {/* WHAT WE DO SECTION */}
+        <div className="space-y-6">
+          <div className="text-center space-y-2">
+            <span className="text-xs font-bold uppercase tracking-wider text-brand-orange">Core Areas of Action</span>
+            <h2 className="text-3xl font-extrabold text-slate-900">What We Do</h2>
           </div>
 
-          <div className="bg-white rounded-2xl border border-slate-200/90 shadow-xs p-6 sm:p-8 space-y-3">
-            <div className="w-12 h-12 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-600 mb-4">
-              <Shield className="w-6 h-6" />
-            </div>
-            <h3 className="text-lg sm:text-xl font-semibold text-slate-900">Our Mission</h3>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-              To deliver practical, standardized road safety LMS portals and video classrooms into 1,000+ secondary schools, certifying students through objective 30-MCQ examinations.
-            </p>
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* 1. Environment */}
+            <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 space-y-4 shadow-xs hover:border-emerald-300 transition-colors">
+              <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center">
+                <Trees className="w-6 h-6" />
+              </div>
 
-          <div className="bg-white rounded-2xl border border-slate-200/90 shadow-xs p-6 sm:p-8 space-y-3">
-            <div className="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 mb-4">
-              <Heart className="w-6 h-6" />
+              <h3 className="text-xl font-bold text-slate-900">Environment &amp; Cleanliness</h3>
+
+              <ul className="space-y-2 text-xs sm:text-sm text-slate-600">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>Ek Rukh 100 Sukh:</strong> Massive tree plantation across public and school lands.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>Plastic-Free Movement:</strong> Eliminating single-use plastics and promoting cleaner towns.</span>
+                </li>
+              </ul>
             </div>
-            <h3 className="text-lg sm:text-xl font-semibold text-slate-900">Core Values</h3>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-              Institutional integrity, non-profit transparency, student data privacy, evidence-based defensive driving techniques, and compassionate community service.
-            </p>
+
+            {/* 2. Youth & Elders */}
+            <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 space-y-4 shadow-xs hover:border-purple-300 transition-colors">
+              <div className="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 border border-purple-200 flex items-center justify-center">
+                <Users className="w-6 h-6" />
+              </div>
+
+              <h3 className="text-xl font-bold text-slate-900">Youth &amp; Elders</h3>
+
+              <ul className="space-y-2 text-xs sm:text-sm text-slate-600">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>Anti-Drug Awareness:</strong> Youth wellness drives and sports to keep youth fit and focused.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>Buzurgan Di Fauj Karegi Mauj:</strong> Celebrating joyful, active living and companionship for senior citizens.</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* 3. Women Empowerment */}
+            <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 space-y-4 shadow-xs hover:border-pink-300 transition-colors">
+              <div className="w-12 h-12 rounded-xl bg-pink-50 text-pink-600 border border-pink-200 flex items-center justify-center">
+                <Heart className="w-6 h-6" />
+              </div>
+
+              <h3 className="text-xl font-bold text-slate-900">Women Empowerment</h3>
+
+              <ul className="space-y-2 text-xs sm:text-sm text-slate-600">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-pink-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>Nari Shakti:</strong> Educational support, health camps, and self-defense initiatives.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-pink-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>Self-Help Groups (SHGs):</strong> Livelihood creation, financial literacy, and entrepreneurial independence.</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        {/* Call to action */}
-        <div className="bg-brand-cream/60 rounded-3xl border border-brand-orange/25 p-6 sm:p-10 text-center space-y-4">
-          <h3 className="text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight">
-            Join Us in Fostering Safe Communities
-          </h3>
-          <p className="text-xs sm:text-sm text-slate-600 max-w-lg mx-auto font-normal leading-relaxed">
-            Whether as a participating school, a teacher coordinator, or a certified volunteer, your contribution saves lives on Indian roads.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+        {/* JOINT ROAD SAFETY DRIVE: BECOME A TRAFFIC SOLDIER */}
+        <div className="bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 text-white rounded-3xl p-8 sm:p-12 shadow-lg shadow-orange-500/20 space-y-6">
+          <div className="space-y-2 max-w-2xl">
+            <span className="px-3 py-1 bg-white/20 rounded-full text-xs font-bold uppercase tracking-wider text-amber-100">
+              Joint Initiative • Nangal &amp; Canada Teams
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-white">
+              Joint Road Safety Drive: Become a Traffic Soldier
+            </h2>
+            <p className="text-sm sm:text-base text-amber-100 leading-relaxed">
+              Together, our Nangal and Canada teams are leading a nationwide Road Safety Drive to save lives on Indian roads through education, discipline, and community recognition:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20 space-y-2">
+              <h4 className="text-base font-bold text-white">Monthly Tests</h4>
+              <p className="text-xs text-amber-100">
+                Held on the <strong>9th, 18th, and 27th of every month at 7:00 PM IST</strong> (20-minute digital 30-MCQ assessment).
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20 space-y-2">
+              <h4 className="text-base font-bold text-white">Free ISI Helmets</h4>
+              <p className="text-xs text-amber-100">
+                Awarded to the <strong>top 10 candidates in every batch</strong> and dispatched directly to their registered home address.
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20 space-y-2">
+              <h4 className="text-base font-bold text-white">Traffic Soldier Kit</h4>
+              <p className="text-xs text-amber-100">
+                Selected volunteers receive a <strong>free cap, T-shirt, tracksuit, shoes, and jacket</strong> to lead on-ground road safety awareness.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
             <Link
-              href="/schools"
-              className="btn-primary px-6 py-2.5 text-xs sm:text-sm font-medium"
+              href="/students"
+              className="w-full sm:w-auto py-3.5 px-8 rounded-xl bg-white text-brand-orange font-bold text-sm shadow-md hover:bg-orange-50 transition-colors text-center"
             >
-              School Partnership
+              Take Monthly Road Safety Exam &rarr;
             </Link>
             <Link
               href="/volunteer"
-              className="btn-secondary px-6 py-2.5 text-xs sm:text-sm font-medium"
+              className="w-full sm:w-auto py-3.5 px-8 rounded-xl bg-orange-700/80 border border-white/30 text-white font-bold text-sm hover:bg-orange-800 transition-colors text-center"
             >
-              Volunteer With Us
+              Join as a Traffic Soldier
             </Link>
           </div>
         </div>
