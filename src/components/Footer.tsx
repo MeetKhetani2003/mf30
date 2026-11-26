@@ -13,19 +13,31 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Column 1: Organization & Campaign Identity */}
           <div className="space-y-4">
-            <Image
-              src="/images/mission-3f-logo.png"
-              alt="Mission 3F Logo"
-              width={190}
-              height={120}
-              className="h-12 w-auto object-contain object-left"
-            />
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="relative h-14 w-14 rounded-full overflow-hidden flex-shrink-0 shadow-sm border border-slate-200 group-hover:scale-105 transition-transform duration-200">
+                <Image
+                  src="/images/mahal-welfare-logo.png"
+                  alt="Mahal Welfare Society Logo"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-base font-extrabold text-slate-900 leading-tight group-hover:text-brand-orange transition-colors">
+                  Mahal Welfare Society
+                </span>
+                <span className="text-[11px] font-semibold text-brand-orange tracking-wide">
+                  Mission-3F &bull; Global Action
+                </span>
+              </div>
+            </Link>
+
             <p className="text-brand-gray text-xs leading-relaxed">
-              Mahal Welfare Services (Est. 2011) has spearheaded grassroots youth education, student civic discipline, and road safety drives across educational institutions.
+              Mahal Welfare Services, Nangal (est. 2011) &amp; Mahal Welfare Society, Canada (est. 2021) — turning community compassion into lasting action across environment, youth well-being, women&apos;s leadership, and road safety.
             </p>
             <div className="p-3 bg-brand-cream border border-brand-orange/20 rounded-xl text-xs font-medium text-brand-charcoal flex items-center gap-2">
               <Shield className="w-4 h-4 text-brand-orange flex-shrink-0" />
-              <span><strong>Mission 3F:</strong> Fit • Fast • Focused</span>
+              <span><strong>Mission 3F:</strong> Fit &bull; Fast &bull; Focused</span>
             </div>
           </div>
 
@@ -71,42 +83,47 @@ export default function Footer() {
           {/* Column 3: Portals & Navigation */}
           <div className="space-y-3">
             <h5 className="text-brand-charcoal font-bold tracking-wide uppercase text-xs">
-              Portals &amp; Engagement
+              Pages &amp; Initiatives
             </h5>
             <ul className="space-y-2 text-xs text-brand-gray">
               <li>
+                <Link href="/" className="hover:text-brand-orange transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
                 <Link href="/about" className="hover:text-brand-orange transition-colors">
-                  About Mahal Welfare Services
+                  About Us (Nangal &amp; Canada)
                 </Link>
               </li>
               <li>
                 <Link href="/mission-3f" className="hover:text-brand-orange transition-colors">
-                  Mission 3F Campaign Overview
+                  Mission-3F Campaign
                 </Link>
               </li>
               <li>
-                <Link href="/schools" className="hover:text-brand-orange transition-colors">
-                  School Onboarding &amp; Partnerships
+                <Link href="/gallery" className="hover:text-brand-orange transition-colors">
+                  Initiatives Gallery
                 </Link>
               </li>
               <li>
-                <Link href="/register/XAV-DEL-101" className="hover:text-brand-orange transition-colors">
-                  Student Registration Portal
-                </Link>
-              </li>
-              <li>
-                <Link href="/coordinator/login" className="hover:text-brand-orange transition-colors">
-                  Teacher Coordinator Interface
+                <Link href="/events" className="hover:text-brand-orange transition-colors">
+                  Events &amp; Monthly Exams (9th, 18th, 27th)
                 </Link>
               </li>
               <li>
                 <Link href="/volunteer" className="hover:text-brand-orange transition-colors">
-                  Volunteer Application Form
+                  Become a Traffic Soldier
                 </Link>
               </li>
               <li>
-                <Link href="/admin/login" className="hover:text-brand-orange transition-colors">
-                  Super Admin Management
+                <Link href="/students" className="hover:text-brand-orange transition-colors">
+                  Students Examination Portal
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-brand-orange transition-colors">
+                  Contact Us
                 </Link>
               </li>
             </ul>
@@ -128,20 +145,20 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2 text-xs text-brand-gray">
                 <Phone className="w-3.5 h-3.5 text-brand-orange flex-shrink-0" />
-                <span>+91 98765 43210 (Campaign Desk)</span>
+                <span>+91 98765 43210 / Canada: +1 604 000 0000</span>
               </div>
               <div className="flex items-start gap-2 text-xs text-brand-gray">
                 <MapPin className="w-3.5 h-3.5 text-brand-gray flex-shrink-0 mt-0.5" />
-                <span>Mahal Welfare Services HQ, Sector Road Safety Wing</span>
+                <span>Nangal, Punjab (India) &amp; Vancouver, BC (Canada)</span>
               </div>
             </div>
           </div>
         </div>
 
         <div className="mt-12 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-brand-gray">
-          <p>© {new Date().getFullYear()} Mahal Welfare Services (Est. 2011). Mission 3F — Fit • Fast • Focused.</p>
+          <p>© {new Date().getFullYear()} Mahal Welfare Society • Nangal (Est. 2011) &amp; Canada (Est. 2021). All rights reserved.</p>
           <p className="flex items-center gap-1 font-medium text-brand-charcoal">
-            Engineered with <Heart className="w-3.5 h-3.5 text-brand-orange fill-brand-orange" /> for Zero Preventable Road Fatalities.
+            Mission-3F &bull; Grassroots Service &bull; Global Reach &bull; Safer Roads
           </p>
         </div>
       </div>
